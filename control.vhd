@@ -11,7 +11,7 @@ entity control is
         a : in L_array;
         u : in L_array;
         v : out L_array;
-        w_rom_read : out natural
+        w : out S_array
     );
 
 end control;
@@ -20,7 +20,6 @@ architecture rtl of control is
 
     type state is (idle, stage1, stage2, stage3);
     signal state_reg, state_nxt : state;
-    signal c_stage : natural := 0;
 
     signal V_reg : L_array;
     signal V_nxt : L_array;
@@ -79,6 +78,8 @@ begin
                 V_nxt(5) <= a(5);
                 V_nxt(6) <= a(3);
                 V_nxt(7) <= a(7);
+
+                w <= (w0,w0,w0,w0);
             when stage2 => 
                 V_nxt(0) <= u(0);
                 V_nxt(1) <= u(2);
@@ -88,6 +89,8 @@ begin
                 V_nxt(5) <= u(6);
                 V_nxt(6) <= u(5);
                 V_nxt(7) <= u(7);
+
+                w <= (w0,w2,w0,w2);
             when stage3 => 
                 V_nxt(0) <= u(0);
                 V_nxt(1) <= u(4);
@@ -97,6 +100,8 @@ begin
                 V_nxt(5) <= u(6);
                 V_nxt(6) <= u(3);
                 V_nxt(7) <= u(7);
+
+                w <= (w0,w1,w2,w3);
         end case;
     end process;
 

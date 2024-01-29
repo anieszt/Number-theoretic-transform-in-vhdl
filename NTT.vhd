@@ -19,7 +19,6 @@ architecture rtl of NTT is
     shared variable v : L_array;
     shared variable u : L_array;
     shared variable w : S_array;
-    shared variable w_rom_read : natural;
 
 begin
 
@@ -32,8 +31,7 @@ begin
 		  rst => rst,
 		  a => A,
 		  u => u,
-		  v => v,
-		  w_rom_read => w_rom_read
+		  v => v
 		);
 
     --w_rom
@@ -100,5 +98,7 @@ begin
 			rA_bfu => u(6),
 			rB_bfu => u(7)
 		);
+
+	O <= u;
     
 end architecture rtl;
