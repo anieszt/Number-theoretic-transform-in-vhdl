@@ -30,6 +30,7 @@ begin
 		  clk => clk,
 		  rst => rst,
 		  a => A,
+		  w => w,
 		  u => u,
 		  v => v
 		);
