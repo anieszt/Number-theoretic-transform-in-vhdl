@@ -6,7 +6,7 @@ use work.package1.all;
 entity NTT is
 
     port(
-		--hi_lvl_ctrl : in std logic
+		up_ctrl : in std_logic;
         clk, rst : in std_logic;
         A : in L_array;
         O : out L_array
@@ -16,15 +16,25 @@ end NTT;
 
 architecture rtl of NTT is
     
-    signal v : L_array;
-    signal u : L_array;
-    signal w : S_array;
-        
+    shared variable v : L_array;
+    shared variable u : L_array;
+    shared variable w : S_array;
+    shared variable w_rom_read : natural;
 
 begin
 
     --control
 
+	control_inst: entity work.control
+		port map (
+		  up_ctrl => up_ctrl,
+		  clk => clk,
+		  rst => rst,
+		  a => A,
+		  u => u,
+		  v => v,
+		  w_rom_read => w_rom_read
+		);
 
     --w_rom
 

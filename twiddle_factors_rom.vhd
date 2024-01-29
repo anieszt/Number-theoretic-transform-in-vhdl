@@ -12,7 +12,7 @@ entity twiddle_factors_rom is
     port(
         clk : in std_logic;
         w_rom_read : in natural; --when wromread=? : w1,w2,w3,w4 <= ?,?,?,?
-        W : out S_array
+        w : out S_array
     );
 
 end twiddle_factors_rom;
