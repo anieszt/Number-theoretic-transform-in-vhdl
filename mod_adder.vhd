@@ -24,15 +24,16 @@ architecture arch of mod_adder is
 
 begin
 	
-	s1 <= adder_a + adder_b;
+	
 	
 	process(clk, rst)
 	begin
-	
+		s1 <= adder_a + adder_b;
+
 		if rst = '1' then 
 	
 			s2 <= (others => '0');
-
+			s1 <= (others => '0');
 		elsif rising_edge(clk) then
 	
 			if s1 < p then

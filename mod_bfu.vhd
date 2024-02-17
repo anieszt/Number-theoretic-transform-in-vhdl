@@ -11,7 +11,11 @@ entity mod_bfu is
 	port(
 		clk, rst : in std_logic;
 		a, b, w : in unsigned(N downto 0);
+		ready : out std_logic;
 		rA_bfu, rB_bfu : out unsigned(N downto 0)
+
+		--debug
+		--ii : out natural
 	);
 	
 end mod_bfu;
@@ -32,6 +36,8 @@ begin
 			rst => rst,
 			mult_a =>b,
 			mult_b =>w,
+			ready => ready,
+			--ii => ii,
 			r => wb_state
 		);
 		

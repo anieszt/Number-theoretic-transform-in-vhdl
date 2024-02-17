@@ -24,15 +24,16 @@ architecture arch of mod_subtractor is
 
 begin
 	
-	s1 <= subtr_a - subtr_b;
+	
 	
 	process(clk, rst)
 	begin
-	
+		s1 <= subtr_a - subtr_b;
+
 		if rst = '1' then 
 	
 			s2 <= (others => '0');
-		
+			s1 <= (others => '0');
 		elsif rising_edge(clk) then
 	
 			if subtr_a >= subtr_b then
