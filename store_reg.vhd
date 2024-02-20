@@ -24,7 +24,7 @@ begin
         if rst = '1' then
 
             qs <= (others => (others => '0'));  
-                 
+
         else
 
             if en = '1' then
