@@ -54,6 +54,8 @@ begin
 
             when idle => 
                 state_stage <= 0;
+                bfu_rst <='1';
+                store_en <='0';
                 if up_ctrl = '1' then
                     state_nxt <= stage1;
                 else

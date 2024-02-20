@@ -21,7 +21,6 @@ package package1 is
 
     -- type state is (idle, stage1, store1, clear1, stage2, store2, clear2,
     --                  stage3, store3, clear3);
-    
     type state is (idle, stage1, clear1,  stage2, clear2,
     stage3, clear3);
 
